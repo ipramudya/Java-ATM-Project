@@ -10,11 +10,11 @@ public class Account {
     private final ArrayList<Transaction> transactions;
 
     /*
-    * Account Constructor
-    * @param name           nama dari akun
-    * @param holder         objek User yang memegang akun
-    * @param theBank        bank yang mengeluarkan akun
-    */
+     * Account Constructor
+     * @param name           nama dari akun
+     * @param holder         objek User yang memegang akun
+     * @param theBank        bank yang mengeluarkan akun
+     */
     public Account(String name, User holder, Bank theBank) {
         this.name = name;
         this.holder = holder;
@@ -27,9 +27,9 @@ public class Account {
     }
 
     /*
-    * Mendapatkan list rekapitulasi saldo dari akun
-    * @return String rekapitulasi
-    */
+     * Mendapatkan list rekapitulasi saldo dari akun
+     * @return String rekapitulasi
+     */
     public String akunRekapitulasi() {
 
         // Mendapatkan saldo dari akun
@@ -44,9 +44,9 @@ public class Account {
     }
 
     /*
-    * Mendapatkan saldo dari akun
-    * @return nilai saldo
-    */
+     * Mendapatkan saldo dari akun
+     * @return nilai saldo
+     */
     public double getBalance() {
         double balance = 0;
         for (Transaction t: this.transactions) {
@@ -56,11 +56,11 @@ public class Account {
     }
 
     /*
-    * Menampilkan histori transaksi dari akun
-    * @param cerAccount         objek Account yang akan diihat data transaksinya
-    */
+     * Menampilkan histori transaksi dari akun
+     * @param cerAccount         objek Account yang akan diihat data transaksinya
+     */
     public void printTransHistory(Account cerAccount) {
-        System.out.printf("\nHistori Transaksi dari akun %s\n", cerAccount.uuid);
+        System.out.printf("\nHistori Transaksi\n%s - Akun %s\n", cerAccount.uuid, cerAccount.name);
 
         // loop dimulai dari transaksi paling akhir
         for (int i = cerAccount.transactions.size()-1; i >= 0 ; i--) {
@@ -69,11 +69,11 @@ public class Account {
     }
 
     /*
-    * Menambahkan transaksi baru pada spesifik akun
-    * @param amount             saldo dari transaksi
-    * @param memo               pesan dari transaksi
-    * @param cerAccount         objek Account yang akan ditambahkan transaksinya
-    */
+     * Menambahkan transaksi baru pada spesifik akun
+     * @param amount             saldo dari transaksi
+     * @param memo               pesan dari transaksi
+     * @param cerAccount         objek Account yang akan ditambahkan transaksinya
+     */
     public void addTransaction(double amount, String memo, Account cerAccount) {
 
         // Membuat objek Transactions baru dan menambahkannya ke list transaksi dalam objek Account
@@ -90,8 +90,4 @@ public class Account {
     public String getName() {
         return this.name;
     }
-
-
-
-    /* SETTER */
 }

@@ -11,11 +11,11 @@ public class Transaction {
     private final Account inAccount;  //transaksi akan disimpan pada akun tertentu
 
     /*
-    * @OVERLOADING
-    * Transaction Constructor
-    * @param amount             saldo yang akan disimpan
-    * @param inAccount          objek Account yang diacu
-    */
+     * @OVERLOADING
+     * Transaction Constructor
+     * @param amount             saldo yang akan disimpan
+     * @param inAccount          objek Account yang diacu
+     */
     public Transaction(double amount, Account inAccount) {
         this.amount = amount;
         this.inAccount = inAccount;
@@ -23,19 +23,19 @@ public class Transaction {
         this.memo = "";
     }
     /*
-    * @param amount             saldo yang akan disimpan
-    * @param inAccount          objek Account yang diacu
-    * @param memo               pesan yang akan disimpan
-    */
+     * @param amount             saldo yang akan disimpan
+     * @param inAccount          objek Account yang diacu
+     * @param memo               pesan yang akan disimpan
+     */
     public Transaction(double amount, String memo, Account inAccount) {
         this(amount, inAccount);
         this.memo = memo;
     }
 
     /*
-    * Mendapatkan saldo transaksi
-    * @return saldo transaksi
-    */
+     * Mendapatkan saldo transaksi
+     * @return saldo transaksi
+     */
     public String transRekapitulasi() {
         if (this.amount >= 0) {
             return String.format("%s : Rp %.02f : %s",

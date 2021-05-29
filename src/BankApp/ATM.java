@@ -23,10 +23,8 @@ public class ATM {
 
     /*
      * Tampilan pertama untuk user melakukan login-authentication
-     * 
-     * @param theBank objek Bank tempat data user disimpan
-     * 
-     * @param sc objek Scanner untuk menerima input dari user
+     * @param theBank           objek Bank tempat data user disimpan
+     * @param sc                objek Scanner untuk menerima input dari user
      */
     public static void userLogin(Bank theBank, Scanner sc) {
         User curUser;
@@ -43,14 +41,13 @@ public class ATM {
 
     /*
      * Melalukan autentikasi user menggunakan UserID dan juga pin
-     * 
-     * @param theBank objek Bank dimana data user disimpan
-     * 
-     * @param sc objek Scanner untuk menerima input dari user
-     * 
-     * @return objek User yang telah terautentikasi
+     * @param theBank           objek Bank dimana data user disimpan
+     * @param sc                objek Scanner untuk menerima input dari user
+     * @return                  objek User yang telah terautentikasi
      */
     private static User authUser(Bank theBank, Scanner sc) {
+
+        Sys.clearScreen();
 
         // Initialize
         String userID, pin;
@@ -75,10 +72,8 @@ public class ATM {
 
     /*
      * Membuat user baru melalui console input
-     * 
-     * @param theBank objek Bank untuk menyimpan data
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param theBank           objek Bank untuk menyimpan data
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void createUser(Bank theBank, Scanner sc) {
 
@@ -106,19 +101,16 @@ public class ATM {
 
     /*
      * Menampilkan semua data user yang telah disimpan di dalam Objek Bank
-     * 
-     * @param thebank objek Bank yang diacu
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param thebank           objek Bank yang diacu
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void showAllUsers(Bank theBank, Scanner sc) {
+
+        Sys.clearScreen();
 
         int choice = 1;
 
         do {
-            // Membersihkan console
-            Sys.clearScreen();
-
             System.out.println("List User pada myMoney Bank");
             theBank.getAllUsersInfo();
             System.out.print("\n\nMasukan 0 untuk kembali: ");
@@ -135,12 +127,9 @@ public class ATM {
 
     /*
      * Membuat akun baru untuk user yang telah login
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param theBank objek Bank yang diacu
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param theBank           objek Bank yang diacu
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void createUserAccount(User loggedUser, Bank theBank, Scanner sc) {
 
@@ -157,10 +146,8 @@ public class ATM {
 
     /*
      * Menghapus Objek Account sesuai nama akun yang diberikan user
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void deleteUserAccount(User loggedUser, Scanner sc) {
 
@@ -176,13 +163,10 @@ public class ATM {
 
     /*
      * Menampilkan histori transaksi dari akun dengan mengirimkan objek User yang terautentikasi
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void showTransHistory(User loggedUser, Scanner sc) {
-
         int num;
 
         // Mendapatkan index account yang akan dicari histori transaksinya
@@ -201,16 +185,22 @@ public class ATM {
             }
         } while (num < 0 || num > loggedUser.numAccounts());
 
+        // Menghapus Screen
+        Sys.clearScreen();
+
         // Menampilkan histori transaksi
         loggedUser.getUserTransHistory(loggedUser, num);
+
+        System.out.println("\n\nTekan apapun untuk kembali ke dashboard awal");
+
+        // Menghentikan terminal hingga User memasukan input
+        sc.nextLine();
     }
 
     /*
      * Memproses dana yang akan ditarik
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void withdrawFunds(User loggedUser, Scanner sc) {
 
@@ -255,10 +245,8 @@ public class ATM {
 
     /*
      * Memproses deposit dana terhadap akun
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void depositFunds(User loggedUser, Scanner sc) {
 
@@ -298,10 +286,8 @@ public class ATM {
 
     /*
      * Memproses transfer dana dari akun satu ke akun yang lain dalam satu objek User
-     * 
-     * @param loggedUser objek User yang telah terautentikasi
-     * 
-     * @param sc objek Scanner untuk input dari user
+     * @param loggedUser        objek User yang telah terautentikasi
+     * @param sc                objek Scanner untuk input dari user
      */
     public static void transferFunds(User loggedUser, Scanner sc) {
 

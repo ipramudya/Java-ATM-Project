@@ -12,11 +12,11 @@ public class User {
     private final ArrayList<Account> accounts;
 
     /*
-    * User Constructor
-    * @param firstName dan lastName         nama awal dan akhir dari user
-    * @param pin                            pin dari user untuk akunnya
-    * @param theBank                        objek Bank dimana user adalah customernya
-    */
+     * User Constructor
+     * @param firstName dan lastName         nama awal dan akhir dari user
+     * @param pin                            pin dari user untuk akunnya
+     * @param theBank                        objek Bank dimana user adalah customernya
+     */
     public User(String firstName, String lastName, String pin, Bank theBank) {
 
         // Initialize
@@ -41,18 +41,18 @@ public class User {
     }
 
     /*
-    * Menambahkan objek Account ke dalam list accounts pada objek User
-    * @param anAccount                      objek Account yang akan ditambahkan
-    */
+     * Menambahkan objek Account ke dalam list accounts pada objek User
+     * @param anAccount                      objek Account yang akan ditambahkan
+     */
     public void addAccount(Account anAccount) {
         this.accounts.add(anAccount);
     }
 
     /*
-    * Cek apakah pin yang diberikan cocok dengan pin milik user
-    * @param  thePin                        pin untuk dicek
-    * @return kondisi true/false setelah pengecekan
-    */
+     * Cek apakah pin yang diberikan cocok dengan pin milik user
+     * @param  thePin                        pin untuk dicek
+     * @return kondisi true/false setelah pengecekan
+     */
     public boolean validatePin(String thePin){
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -69,12 +69,12 @@ public class User {
     }
 
     /*
-    * Menampilkan rekapitulasi akun beserta saldo yang dimiliki tiap akun
-    * @param loggedUser                     user yang telah terautentikasi
-    */
+     * Menampilkan rekapitulasi akun beserta saldo yang dimiliki tiap akun
+     * @param loggedUser                     user yang telah terautentikasi
+     */
     public void userRekapitulasi(User loggedUser) {
 
-        System.out.printf("\n\nSelamat datang %s\n\n", loggedUser.getFirstName());
+        System.out.printf("Selamat datang %s\n\n", loggedUser.getFirstName());
 
         // Menampilkan seluruh objek Account yang dimiliki user
         System.out.println("Akun anda :");
@@ -85,10 +85,10 @@ public class User {
     }
 
     /*
-    * Menghapus Objek Account sesuai nama yang diberikan user
-    * @param delName                        String nama yang diberikan user
-    * @param loggedUser                     objek User yang terautentikasi
-    */
+     * Menghapus Objek Account sesuai nama yang diberikan user
+     * @param delName                        String nama yang diberikan user
+     * @param loggedUser                     objek User yang terautentikasi
+     */
     public void deleteAccount(String delName, User loggedUser) {
 
         for (int i = 0; i < loggedUser.accounts.size(); i++) {
@@ -99,7 +99,12 @@ public class User {
     }
 
     /*
-    * */
+    * Mencari akun yang akan ditambahkan transaksinya
+    * @param loggedUser                     objek User yang terautentikasi
+    * @param index                          index dari accounts yang akan dicari transaksinya
+    * @param amount                         jumlah saldo yang akan disimpan ke dalam rekapitulasi transaksi
+    * @param memo                           pesan yang akan disimpan pada setiap transaksi
+    */
     public void addAccTransaction(User loggedUser, int index, double amount, String memo) {
 
         // akun yang akan digunakan untuk pengecekan transaksi
@@ -145,10 +150,10 @@ public class User {
     }
 
     /*
-    * Mendapatkan saldo dari akun sesuai index
-    * @param index                          index dari akun yang akan dicari
-    * @return saldo dari akun
-    */
+     * Mendapatkan saldo dari akun sesuai index
+     * @param index                          index dari akun yang akan dicari
+     * @return saldo dari akun
+     */
     public double getAccBalance(int index) {
         return this.accounts.get(index).getBalance();
     }

@@ -12,9 +12,9 @@ public class Bank {
     private final ArrayList<Account> accounts;
 
     /*
-    * Bank Constructor
-    * @param            nama dari bank yang akan diinisialisasi
-    */
+     * Bank Constructor
+     * @param            nama dari bank yang akan diinisialisasi
+     */
     public Bank(String name) {
         this.name = name;
         this.users = new ArrayList<User>();
@@ -22,9 +22,9 @@ public class Bank {
     }
 
     /*
-    * Membuat uuid baru untuk setiap akun baru
-    * @return           account's uuid
-    */
+     * Membuat uuid baru untuk setiap akun baru
+     * @return           account's uuid
+     */
     public String makeNewAccountUUID() {
 
         // Initialize
@@ -82,11 +82,11 @@ public class Bank {
     }
 
     /*
-    * Membuat user baru beserta akun tabungan ke dalam Bank
-    * @param firstName dan lastName         nama awal dan akhir dari user
-    * @param pin                            pin dari user untuk login
-    * @return                               objek user yang baru saja ditambahkan
-    */
+     * Membuat user baru beserta akun tabungan ke dalam Bank
+     * @param firstName dan lastName         nama awal dan akhir dari user
+     * @param pin                            pin dari user untuk login
+     * @return                               objek user yang baru saja ditambahkan
+     */
     public User addUser(String firstName, String lastName, String pin) {
 
         // membuat objek User baru
@@ -103,19 +103,19 @@ public class Bank {
     }
 
     /*
-    * Menambahkan akun ke dalam accounts pada Bank
-    * @param anAccount              akun untuk ditambahkan
-    */
+     * Menambahkan akun ke dalam accounts pada Bank
+     * @param anAccount              akun untuk ditambahkan
+     */
     public void addAccount(Account anAccount) {
         this.accounts.add(anAccount);
     }
 
     /*
-    * Melakukan autentikasi user menggunakan userId dan juga Pin
-    * @param userId                 id dari user untuk divalidasi
-    * @param pin                    pin dari user untuk divalidasi
-    * @return user yang telah berhasil login atau null
-    */
+     * Melakukan autentikasi user menggunakan userId dan juga Pin
+     * @param userId                 id dari user untuk divalidasi
+     * @param pin                    pin dari user untuk divalidasi
+     * @return user yang telah berhasil login atau null
+     */
     public User userLogin(String userID, String pin) {
         for (User u: this.users) {
 
@@ -141,6 +141,4 @@ public class Bank {
                     this.users.get(i).getUUID(), this.users.get(i).getFullName());
         }
     }
-
-    /* SETTER */
 }
