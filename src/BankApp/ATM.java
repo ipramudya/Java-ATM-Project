@@ -180,10 +180,10 @@ public class ATM {
             // karena indeks ArrayList dimulai dari 0
             num = Integer.parseInt(sc.nextLine()) - 1;
 
-            if (num < 0 || num > loggedUser.numAccounts()) {
+            if (num < 0 || num >= loggedUser.numAccounts()) {
                 System.out.println("Akun tidak tersedia, Silahkan coba kembali.");
             }
-        } while (num < 0 || num > loggedUser.numAccounts());
+        } while (num < 0 || num >= loggedUser.numAccounts());
 
         // Menghapus Screen
         Sys.clearScreen();
